@@ -38,6 +38,9 @@ header{
   display: flex;
   justify-content: flex-end;
   align-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 nav{
@@ -219,17 +222,13 @@ h3{
 }
 
 .projeto{
-  background-color: var(--fundo-principal);
+    background-color: var(--fundo-principal);
   border-radius: 8px;
-  overflow: hidden;
+  border-left: 5px solid var(--destaque-inverso);
+  transition: 0.4s;
 }
 
-.projeto img{
-  width: 100%;
-  display: block;
-}
-
-.projeto .info{
+ .projeto .info{
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -238,16 +237,61 @@ h3{
 
 .projeto .titulo{
   color: var(--destaque);
-}
+} 
 
 .projeto p{
   color: var(--texto);
   text-align: left;
+} 
+
+.foto{
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  object-fit: cover;
+  overflow: hidden;
+
 }
 
+
+#projeto-container .projeto:hover{
+  color: var(--destaque);
+  border-left-width: 15px;
+  cursor: pointer;
+}
+
+footer{
+  background-color: var(--destaque);
+  color: var(--texto-inverso);
+  text-align: center;
+  padding: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: azure;
+}
+a:hover{
+  color: var(--destaque-inverso);
+}
 
 @media screen and (min-width: 768px) {
   .skills-container{
     grid-template-columns: 1fr 1fr;
   }
+  #projeto-container .projeto{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  #projeto-container .info{
+    max-width: 80%;
+  }
+  #projeto-container .foto{
+    aspect-ratio: 1/1;
+    max-width: 20%;
+    max-height: 200px;
+  }
+
+
 }
